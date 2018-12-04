@@ -1,0 +1,313 @@
+<head>
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+
+  <link   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+  <link rel="icon" href="images/favicon.ico" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
+  <script type="text/javascript" src="/js/javascript.js"></script>
+  <script type="text/javascript" src="/js/sender.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/basicModal/3.3.9/basicModal.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/basicModal/3.3.9/basicModal.min.js"></script>
+  <title> Training Bridgey </title>
+</head>
+
+<a id="reports" tabindex="-1" onclick="return confirm('This will take you to Bridgey Reports. You may lose the content of your current bridge. Are you sure?')" class="btn btn-lg pull-left" href="/reports"> <span class="glyphicon glyphicon-equalizer"></span> </a>
+<div class="container">
+  <div class="row form-group">
+    <div class="col-xs-12">
+      <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+        <li class="active"><a href="#step-1">
+            <h4 class="list-group-item-heading">1. Profile</h4>
+            <p class="list-group-item-text">Current situation</p>
+          </a>
+        </li>
+        <li class="disabled"><a href="#step-2">
+            <h4 class="list-group-item-heading">2. Comments</h4>
+            <p class="list-group-item-text">Details of role</p>
+          </a>
+        </li>
+
+        <li class="disabled"><a href="#step-3">
+            <h4 class="list-group-item-heading">3. Callback</h4>
+            <p class="list-group-item-text">Next contact & terms</p>
+          </a>
+        </li>
+
+        <li class="disabled"><a href="#step-4">
+            <h4 class="list-group-item-heading">4. Applicant</h4>
+            <p class="list-group-item-text">Media, RTW, Postcode</p>
+          </a>
+        </li>
+        <li class="disabled"><a href="#step-5">
+            <h4 class="list-group-item-heading">5. Classifying</h4>
+            <p class="list-group-item-text">Skills, Status, and Real-title</p>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <form id="dataForm" enctype='multipart/form-data' data-toggle="validator" action="/process" method='post'>
+    <div class="row setup-content" id="step-1">
+      <div class="col-xs-12">
+        <div class="col-md-12 well">
+
+          <label class="form-text text-muted">Where is this person currently working and why are they looking to move on from that role?</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea type="text" data-gramm_editor="false" class="form-control padder" placeholder="Enter text" name="whyLeaving" rows="3" minlength="20" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
+
+          <label class="form-text text-muted">What is their current role: describe tech, company, teams, skills, salary, structure, tasks etc. Frame it as a real title and ensure you have at least one BTP.</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea  type="text" data-gramm_editor="false" class="form-control padder" name="currentSituation" rows="3" placeholder="Enter text" minlength="20" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
+
+          <label class="form-text text-muted">Describe the next role they want in view of the above. What salary, commute, role type, career etc. Are they really seeking? Can you SELL it to them?</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea  type="text" data-gramm_editor="false" class="form-control padder" name="whatDoTheyWant" rows="3" placeholder="Enter text" minlength="20" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <label class="form-text text-muted">What is their notice period and their right to work in the UK?</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea  type="text" data-gramm_editor="false" class="form-control padder" name="otherNotes" rows="3" placeholder="Enter text" minlength="20" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-11 padder">
+            <label id="helpText" class="form-text text-muted">Add Annual and Hourly salary, or both</label>
+          </div>
+          <div class="col-sm-4 input-group salary-icon padder">
+            <div class="input-group-addon">£</div>
+            <input  type="number" class="form-control" name="minimumAnnualSalary" placeholder="Minimum Annual Salary"/>
+          </div>
+          <div class="col-sm-4 input-group salary-icon padder">
+            <div class="input-group-addon">£</div>
+            <input  type="number" class="form-control" name="minimumDailySalary" placeholder="Minimum Daily Salary" />
+          </div>
+        </div>
+
+        <button id="activate-step-2" class="btn btn-primary btn-md">Now screen for and sell a campaign!</button>
+      </div>
+    </div>
+
+    <div class="row setup-content" id="step-2">
+      <div class="col-xs-12">
+        <div class="col-md-12 well">
+
+          <label class="form-text text-muted">Enter the Campaign and Customer you discussed:</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea data-gramm_editor="false" class="form-control padder" name="defineRole" rows="2" placeholder="Enter text" minlength="5" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <label class="form-text text-muted">Briefly tell us about their suitability, interest and any second screen call:</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea class="form-control padder" data-gramm_editor="false" name="isSuitable" rows="2" placeholder="Enter text" minlength="5" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <label class="form-text text-muted">When did they start their job search?</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea class="form-control padder" data-gramm_editor="false" name="durationLooking" rows="2" placeholder="Enter text" minlength="5" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <label class="form-text text-muted">Tell us about their job search up to this point and what other roles we are competing with:</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea class="form-control padder" data-gramm_editor="false" name="otherWork" rows="2" placeholder="Enter text" minlength="5" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+          <label class="form-text text-muted">Tell us about their exact availability to start a role and to attend interview:</label>
+          <div class="col-md-11 form-group has-feedback">
+            <textarea class="form-control padder" data-gramm_editor="false" name="availability" rows="2" placeholder="Enter text" minlength="5" required></textarea><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-11">
+            <label id="helpText" class="helpheightdark form-text">Note: What does this information tell you about their motivation and reliability?</label><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+        </div>
+        <button id="activate-step-3" class="btn btn-primary btn-md">Set Callback Date & Time</button>
+      </div>
+    </div>
+
+    <div class="row setup-content" id="step-3">
+      <div class="col-xs-12">
+        <div class="col-md-12 well">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-11 form-group">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">Before we proceed can I quickly run through what Talent Point will do with your personal data to make sure you are comfortable with all parts of the job-seeking service we provide:</div>
+                  <div class="terms-panel panel-body">
+                    <div class="terms-internal panel panel-default">
+                      <div class="input-group form-group has-feedback">
+                        <p class="panel-body">In order to contact you in the future about this role and others I will need to retain your email, phone number and any address details you have given me alongside your name and the details provided on your CV. Are you ok with me doing this?</p>
+
+                        <span class="terms input-group-addon">
+                          <input type="checkbox" required>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="terms-internal panel panel-default">
+                      <div class="input-group form-group has-feedback">
+                        <p class="panel-body">Are you also happy for myself or a colleague to make contact with you by email or phone concerning potential roles as and when they come up?</p>
+                        <span class="input-group-addon terms">
+                          <input type="checkbox" required>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-heading">
+                    <p class="warningtext">Are there any other questions you have about the data Talent Point will hold or what we will do with it on your behalf?</p></div>
+                </div>
+              </div>
+              <label id="helpText" class="form-text helpheightdark">Now add Callback details:</label>
+              <div class="col-md-10 form-group has-feedback">
+                <input class="form-control padder" name="callbackSubject" placeholder="Subject of Callback (maximum 100 characters)" type="text"  minlength="5" maxlength="95" required/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true">
+              </div>
+
+              <div class='col-sm-6'>
+                <div class="form-group has-feedback">
+                  <div class='input-group date' id='datetimepicker' data-provide="datepicker">
+                    <span class="input-group-addon callback-icon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    <input type='text' name='date' class="form-control callback-input" placeholder="Add Callback date and time" readonly="readonly" required/>
+                    <span class="glyphicon form-control-feedback date-tick" aria-hidden="true"></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <button id="activate-step-4" class="btn btn-primary btn-md">End the call... but don't forget the postcode!</button>
+
+      </div>
+    </div>
+
+    <div class="row setup-content" id="step-4">
+      <div class="col-xs-12">
+        <div class="col-md-12 well text-center">
+
+          <div class="col-md-5 form-group has-feedback">
+            <input class="form-control padder" name="firstName" placeholder="First Name" type="text"  required/>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+          <div class="col-md-6 form-group has-feedback">
+            <input class="form-control padder" name="lastName" placeholder="Surname" type="text"  required/>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+
+          </div>
+
+          <div class="col-md-8 form-group has-feedback">
+            <input class="form-control padder" id="address1" name="address1" placeholder="Address Line 1" type="text"  required/>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-1">
+            <button class="btn btn-info btn-mid fakeAddress">Fake Address</button>
+          </div>
+
+          <div class="col-md-8 form-group has-feedback">
+            <input class="form-control padder" id="address2" name="address2" placeholder="Address Line 2" type="text"  required/>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-8 form-group has-feedback">
+            <input class="form-control padder" id="address3" name="address3" placeholder="Address Line 3" type="text"/>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-2 form-group has-feedback">
+            <input class="form-control padder" pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s?[0-9][A-Za-z]{2})" name="postcode" placeholder="Postcode" type="text" required/>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-5 form-group has-feedback">
+            <input class="form-control padder" name="emailAddress" placeholder="Email address (must be all lower case)" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-5 form-group has-feedback">
+            <input class="form-control padder" name="mobileNumber" placeholder="Mobile number" type="text" pattern="([0-9]|[\- +#])+"/>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+
+          <div class="col-md-5 form-group has-feedback">
+            <select class="form-control padder" name="mediaType" required>
+              <option value="" disabled selected>Where did they come from?</option>
+              <% @media_data.each do |item| %>
+                <option value="<%= item[1] + "," + item[0] %>"><%= item[0] %></option>
+              <% end %>
+            </select><span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-5 form-group has-feedback">
+            <select class="form-control padder" name="thisUser" required>
+              <option value="" disabled selected>Who are you?</option>
+              <% @user_data.each do |item| %>
+                <option value="<%= item[2] + "," + item[0] + "," + item[1] %>"><%= item[0] + " " + item[1] %></option>
+              <% end %>
+            </select>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-5 well tpgreen form-group has-feedback">
+            <label id="helpText" class="form-text text-muted">Add the applicant's CV</label>
+            <input class="fileselect" type='file' name='resume' accept=".txt, .doc, .docx, .pdf" required/>
+            <span class="glyphicon form-control-feedback date-tick2" aria-hidden="true"></span>
+          </div>
+        </div>
+        <button id="activate-step-5" class="btn btn-primary btn-md">Finally, add Status and Keywords</button>
+
+      </div>
+    </div>
+    <div class="row setup-content" id="step-5">
+      <div class="col-xs-12">
+        <div class="col-md-12 well">
+
+          <div class="col-md-8 form-group has-feedback">
+            <label id="helpText" class="form-text helpheight">Status: this will be the appliant's live status on Itris.</label>
+            <select class="form-control padder" name="status" id="statusChange" onchange="prepareDivs(this.selectedIndex-1)" required>
+              <option value="" disabled selected>What is the status?</option>
+              <% @status_data.each_with_index do |item, index| %>
+                <option value="<%= item[1] + "," + item[0] %>"><%= item[0]%></option>
+              <% end %>
+            </select><span class="glyphicon form-control-feedback date-tick2" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-12 form-group">
+            <% @status_files_names.each_with_index do |name, x| %>
+              <div hidden class="skillDiv" id="<%=x%>">
+                <label id="helpText" class="form-text helpheight">Real title/skills – select as many appropriate real titles and skills as apply.</label>
+
+                <select class="js-multiple skill padder" name="skills[]" multiple="multiple">
+                  <% @status_file_data[x].each do |item| %>
+                    <option value="<%=item[1] + "," + item[0]%>"><%=item[0]%></option>
+                  <% end %>
+                </select>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <p>          <label id="helpText" class="form-text">Once you are happy that all fields have been filled in accurately: </label> </p>
+        <input type="submit" value="Submit to ITRIS and send onboarding email" class="btn btn-success btn-md"/>
+
+      </div>
+    </div>
+
+  </form>
+</div>

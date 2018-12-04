@@ -1,0 +1,160 @@
+
+* {
+border-radius: 0 !important;
+}
+
+body {
+  margin-top: 20px;
+  height: 100%;
+  background: linear-gradient(#7eb8ac,#c3cdae);
+  background-attachment: fixed;
+}
+
+.title {
+  background-color: #ecebeb;
+  padding: 7px;
+}
+
+.container .input-group-addon:last-child {
+  border: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-group {
+  margin: 0px 20px;
+}
+
+.padder {
+  margin: 10px 0px;
+}
+
+.warningtext  {
+  margin: 0px 0px 0px;
+}
+
+p.panel-body {
+  margin: 0px;
+}
+
+.helpheight {
+  margin-top: 15px;
+  color: #808080;
+}
+
+.helpheightdark {
+  margin-top: 15px;
+  width:98%;
+}
+
+.terms-panel {
+  background: #f5f5f5;
+  padding-top: 3px;
+}
+
+.terms {
+  background-color: #f2dede;
+}
+
+.terms-internal {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+#reports{
+  margin-left: 10px;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.fileselect {
+  margin: 15px 0px 0px 0px;
+}
+
+.file-input-wrapper {
+  height: 35px;
+  overflow: hidden;
+  position: absolute;
+  width: 123px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.file-input-wrapper>input[type="file"] {
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.text-muted {
+  margin: 5px 0px -5px 20px;
+  width: 98%;
+}
+
+.select2-container--default .select2-results>.select2-results__options {
+  max-height: 300px;
+}
+
+.form-control-feedback {
+  top: 10px;
+  right: 24px;
+}
+
+.fakeAddress {
+  position: relative;
+  padding: 1px 4px;
+  top: 15px;
+  right: 37px;
+}
+
+.salary-icon {
+  left: 35px;
+}
+
+.date-tick {
+  top: 0px;
+  right: 20px;
+}
+
+.callback-icon {
+  background-color: #ccc !important;
+  border-width: 2px;
+  border-color: black;
+}
+
+.callback-input {
+  border-left-width: 2px;
+  border-left-color: black;
+}
+
+
+.date-tick2 {
+  top: 50px !important;
+  right: 22px;
+}
+
+.date-tick3 {
+  top: 10px !important;
+  right: 22px;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.tpgreen {
+  background-color: #d2d2d2;
+  left: 15px;
+  margin-top: 10px;
+}

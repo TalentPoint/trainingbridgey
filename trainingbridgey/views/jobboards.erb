@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+
+    <link   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+
+    <script src="/css/bootstrap-table-en-US.min.js"></script>
+
+    <script type="text/javascript" src="/js/javascript.js"></script>
+    <script type="text/javascript" src="/js/sender.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <link rel="icon" href="images/favicon.ico" />
+    <title> Bridgey Reports </title>
+  </head>
+
+  <style>
+    body, html {
+      height: 100%;
+      background: linear-gradient(#7eb8ac,#c3cdae);
+      background-attachment: fixed;
+      font-family: 'Titillium Web', sans-serif;
+    }
+
+    .btn {
+      margin: 7px 0px 7px 0px;
+    }
+
+    .counter {
+      position:fixed;
+      top: -10px;
+      right: 80px;
+      padding:10px;
+    }
+
+    .fixed-table-container {
+      border: none;
+    }
+
+    .label {
+      display: inline-table;
+      line-height: initial;
+      margin-bottom: 2px;
+    }
+
+    .table-borderless > tbody > tr > td,
+    .table-borderless > tfoot > tr > th {
+     border: none !important;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h2>Bridgey Job Board info</h2>
+      <div class="btn-group" role="group" aria-label="...">
+        <a class="btn btn-default <%= "btn-primary" if @status=="lastmonth" %>" href="/reports/jobboards/lastmonth"> <%= Date.today.last_month.strftime("%B") %> </a>
+        <a class="btn btn-default <%= "btn-primary" if @status=="thismonth" %>" href="/reports/jobboards/thismonth"> This Month </a>
+        <a class="btn btn-default <%= "btn-primary" if @status=="yesterday" %>" href="/reports/jobboards/yesterday"> Yesterday* </a>
+        <a class="btn btn-default <%= "btn-primary" if @status=="today" %>" href="/reports/jobboards"> Today </a>
+      </div>
+      <div class="btn-group" role="group" aria-label="...">
+        <a class="btn btn-success" href="/reports"> <span class="glyphicon glyphicon-home"></span></a>
+      </div> 
+      <table class="table table-borderless" data-toggle="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @jobboards.each do |item| %>
+            <tr>
+              <td><%= item[0] %></td>
+              <td><%= item[1] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <p> </p>
+      <% if @status=="yesterday" %>
+      <small> * Last business day. On Sunday/Monday, this will be Friday</small>
+      <p></p>
+      <% end %>
+      <p><a href="/">Go back to Bridgey</a></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+source 'https://rubygems.org'
+source 'http://gems.github.com'
+
+gem 'sinatra'
+gem 'pry'
+gem 'rest-client'
+gem 'sinatra-simple-auth'
+gem 'activesupport', '~> 5.0', '>= 5.0.0.1'
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'sinatra-flash'
+gem 'sinatra-redirect-with-flash'
+gem 'rake'
+gem 'sendgrid-ruby'
+
+group :development do
+  gem 'sqlite3'
+  gem 'tux'
+end
+
+group :production do
+  gem 'pg'
+end
+
+group :test do
+  gem 'rack-test'
+  gem 'minitest'
+end

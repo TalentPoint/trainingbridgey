@@ -1,0 +1,2 @@
+require './bridgey'
+require 'sinatra/activerecord/rake'
